@@ -9,7 +9,7 @@
 
 \newcommand{\module}{Module}
 \newcommand{\university}{Centro Universitário Paraíso do Ceará}
-\newcommand{\department}{Departamento de SI/ADS}
+\newcommand{\department}{Cursos de SI/ADS}
 \newcommand{\term}{}
 \newcommand{\membername}{}
 \newcommand{\memberuid}{}
@@ -20,6 +20,13 @@
 \newcommand{\setterm}[1]{\renewcommand{\term}{#1}}
 \newcommand{\setmembername}[1]{\renewcommand{\membername}{#1}}
 \newcommand{\setmemberuid}[1]{\renewcommand{\memberuid}{#1}}
+
+
+\newcommand{\n}{\lnot}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\lr}{\leftrightarrow}
+\newcommand{\e}{\land}
+\newcommand{\ou}{\lor}
 
 % -----------------------------------------------------------------------
 % Paper formatting
@@ -54,8 +61,8 @@
 \newcommand{\header}{%
     {\bf \university} \hfill \term  \\
     {\bf \department} \hfill \@title \\
-        Professor: \membername \\
-        Disciplina: \memberuid 
+        \textbf{Professor:} \membername \\
+        \textbf{Disciplina:} \memberuid 
         \begin{center}
             {\bf{\Large\module}}
         \end{center}
