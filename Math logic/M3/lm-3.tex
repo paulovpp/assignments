@@ -1,0 +1,125 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{header}
+\usepackage{amsmath,amssymb,bm}
+\usepackage[brazilian]{babel}
+% \usepackage{enumerate}
+\usepackage{enumitem}
+
+
+% \usepackage{arial}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Metadata
+\date{\today}
+\setmodule{Lógica proposicional para AVP1}
+\setterm{Semestre 1, 2022}
+
+\title{Atividade 3}
+\setmembername{Paulo Vinicius Pereira Pinheiro}  % Fill name
+\setmemberuid{Lógica Matemática} 
+
+\begin{document}
+    \normalfont
+    \header{}
+
+    \begin{question}
+        Sejam as proposições p: está frio e q: está chovendo. Traduzir para a linguagem corrente as seguintes proposições:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item $\n p \ou q$
+            \item $q \lr \n p$
+            \item $\n p \e \n q$
+            \item $(p \e \n q) \rar p$
+        \end{enumerate}
+    \end{question}
+
+    \begin{question}
+        Sejam as proposições p: Jorge é rico e q: Carlos é feliz. Traduzir para linguagem corrente as seguintes proposições:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item $p \rar q$
+            \item $\n p \ou \n q$
+            \item $\n \n p$
+            \item $\n (\n p \e \n q)$
+        \end{enumerate}
+    \end{question}
+
+    \begin{question}
+        Sejam as proposições p: Marcos é alto e q: Marcos é elegante. Traduzir para a linguagem simbólica as seguintes proposições:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item Marcos é alto e elegante.
+            \item Marcos é alto, mas não é elegante.
+            \item Não é verdade que Marcos é baixo e elegante.
+            \item Marcos é alto ou é baixo e elegante.
+        \end{enumerate}
+    \end{question}
+    
+    \begin{question}
+        Dadas as seguintes proposições:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item[] p: o número 596 é divisível por 2.
+            \item[] q: o número 596 é divisível por 4.
+            \item[] r: o número 596 é divisível por 3.
+        \end{enumerate}
+        Traduzir para a linguagem simbólica:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm, label = {\alph*.}]
+            \item É falso que número 596 é divisível por 2 e por 3, ou o número 596 não é divisível por 4.
+            \item O número 596 não é divisível por 2 ou por 4, mas é divisível por 3.
+            \item Se não é verdade que o número 596 é divisível por 3, então ele é divisível por 2 e não por 4.
+            \item É falso que o número 596 não é divisível por 2 e por 4, mas é divisível por 3 e por 2.
+        \end{enumerate}
+    \end{question}
+
+    \begin{question}
+        Sabendo-se que $V(p) = V(q) = V$ e $V(r) = V(s) = F$, determine os valores lógicos das seguintes proposições:
+        \vspace{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item $(p \rar (q \e \n r)) \ou (p \rar (r \rar q))$
+            \item $(q \ou r) \lr (\n q \rar r)$
+            \item $(\n p \e \n(r \e \n s))$
+            \item $\n (q \rar (\n p \lr s))$
+        \end{enumerate}
+    \end{question}
+
+    \begin{question}
+        Demonstrar utilizando o método dedutivo a equivalência abaixo:
+        \vspace*{-3mm}
+        \begin{equation*}
+            p \lr(q \e p) \Longleftrightarrow  p \rar q
+        \end{equation*}
+    \end{question}
+
+    \begin{question}
+        Defina se as relações abaixo são tautológicas, contraditórias ou contingentes.
+        \vspace*{-3mm}
+        \begin{enumerate}[itemsep=-1mm]
+            \item $(p \rar (p \rar \n q)) \e q$
+            \item $(p \rar q) \rar (p \ou r \rar q \ou r)$
+        \end{enumerate}
+    \end{question}
+
+
+
+    \begin{question}
+        Considere as fórmulas $H_n(p, q, r)$ a seguir e desenvolva suas respectivas tabelas verdade.
+        \vspace{-3mm}
+        % \begin{enumerate}[\bf \quad a.]
+        \begin{enumerate}[itemsep=-1mm]
+            \item[] $H_1 = (\lnot p \lor q)~\leftrightarrow~(p \rightarrow q)$
+            \item[] $H_2 = p \rightarrow ((q \rightarrow r) \rightarrow ((p \rightarrow r) \rightarrow (p \rightarrow r)))$ 
+            \item[] $H_3 = (p \rightarrow \n q) \leftrightarrow \lnot p $
+            \item[] $H_4 = (q \rar \n p) $
+            \item[] $H_5 = (p \rar (q \rar r)) \lr ((p \e q) \rar r) $
+            \item[] $H_6 = (false \rar q) \lr r$
+            \item[] $H_7 = (p \lr \n q) \lr q \rar p$
+            \item[] $H_8 = (p \lr \n q) \rar \n p \e q$
+        \end{enumerate}
+    \end{question}
+    
+\end{document}
