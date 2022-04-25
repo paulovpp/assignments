@@ -79,3 +79,13 @@
     % \newline
     \hrule
     }{\medskip}
+
+\newenvironment{answer}[1][]{
+        \par \medskip
+        {\textbf{#1}}
+        \par
+        \begin{mdframed}[backgroundcolor=gray!10!white]
+    }
+    {
+        \end{mdframed}
+    }
