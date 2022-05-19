@@ -1,0 +1,73 @@
+\documentclass[a4paper,pra,aps,twocolumn,superscriptaddress,10pt]{revtex4-2}
+\usepackage[pretty,uselistings]{revquantum}
+% \usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{stmaryrd} 
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n} 
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{silence}
+\WarningFilter{revtex4-2}{Repair the float}
+\usepackage{anyfontsize}
+\usepackage{lipsum}
+
+%=============================================================================
+% FRONT MATTER
+%=============================================================================
+
+\begin{document}
+
+\title{Atividade prática da disciplina de Matemática Computacional}
+
+\author{Paulo Vinicius Pereira Pinheiro}
+\email{paulovpp@gmail.com}
+\affiliation{UNINTER - Centro Universitário Internacional}
+\affiliation{RU: 3760288}
+
+\date{\today}
+
+\begin{abstract}
+    A crescente necessidade por segurança nas transações online traz à tona um problema de grande complexidade: até quando os protocolos atuais de segurança da informação são capazes de nos manter seguros? Inúmeros são os métodos utilizados para comunicação segura. Dentre eles, destaca-se a criptografia. De forma simétrica ou assimétrica, o ato de criptografar uma mensagem é torná-la inelegível a aqueles à quem a mensagem não se destina. A criptografia é um dos tópicos abordados na disciplina de matemática computacional do curso de engenharia da computação da UNINTER. E o trabalho abaixo realizado trata do assunto trabalha a criptografia de forma aplicada. São solicitados os seguintes procedimentos: que sejam codificadas as 4 primeiras letras do nome do aluno utilizando-se a cifra simétrica de Feistel com apenas 2 estágios, utilizando o último dígito do RU, $K$ como a chave criptográfica para ambos os estágios. Deve-se utilizar também como função $F$ um shift left, cíclico, de $K$ posições. Solicita-se também que a mensagem codificada seja preparada para transmissão e que, em seguida, haja o processo de decodificação, comprovando assim a reciprocidade do processo.
+    
+    
+\end{abstract}
+
+\maketitle
+
+%=============================================================================
+% MAIN DOCUMENT
+%=============================================================================
+
+\section{Introdução}
+
+    \lipsum[2-4]
+
+    é chamado de cifragem. A cifragem é um processo de transformação de um texto em uma sequência de caracteres que é conhecida como uma cifra. A cifra é um método de criptografia que consiste em transformar uma sequência de caracteres em outra sequência de caracteres, ou seja, é um processo de substituição.
+\section{Desenvolvimento}
+    \lipsum[2-4]
+
+
+\section{Conclusão}
+    \lipsum[2-4]
+
+% \bibliography{example}
+
+%=============================================================================
+% APPENDICES
+%=============================================================================
+
+\appendix
+
+%=============================================================================
+\section{Source Code}
+\label{apx:code}
+%=============================================================================
+
+\begin{lstlisting}[style=python,gobble=4,caption={Quick example of importing}]
+        import qutip as qt
+\end{lstlisting}
+
+\end{document} 
