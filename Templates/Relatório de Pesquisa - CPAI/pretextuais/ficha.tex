@@ -1,0 +1,58 @@
+%----------------------------------------------------------------------------------------------------------------
+% File : ficha.tex
+%----------------------------------------------------------------------------------------------------------------
+
+% ---
+% Anverso da folha de rosto:
+
+{
+  \ABNTEXchapterfont\setlength{\parindent}{0cm}
+  
+  \vspace*{\fill} 
+  
+  \copyright\ CPAI 2016
+  
+  Classificação de Segurança: 10  -- Restrito
+  
+  \vspace*{\fill} % Posição vertical
+  
+  \begin{fichacatalografica}\ABNTEXchapterfont
+    \vspace*{\fill} % Posição vertical
+    \begin{center}
+      {\scriptsize Dados Internacionais de Catalogação na Publicação (CIP)} 
+      
+      {\scriptsize (Câmara Brasileira do Livro, SP, Brasil)} 
+    \end{center}
+    \hrule % Linha horizontal
+    \begin{center} % Minipage Centralizado
+      \begin{minipage}[c]{13cm} % Largura
+        \imprimirautor
+        
+        \hspace{0.5cm} \projeto\ : \imprimirtitulo\ / \imprimirautor. --
+        \imprimirlocal : \UNB : \CPAI, \imprimirdata.
+        
+        \hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 29,7 cm.\\
+        
+        \hspace{0.5cm}
+        \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\CPAI, \imprimirdata.}
+        
+        \hspace{0.5cm}
+        \parbox[t]{\textwidth}{Versão \versao\ (final).}\\
+        
+        %\hspace{0.5cm}
+        %\parbox[t]{\textwidth}{ISSN: \imprimirissn}\\
+        
+        \hspace{0.5cm}
+        \kwords\ I. Título
+        \begin{flushright}
+          CDD 22
+        \end{flushright}
+      \end{minipage}
+    \end{center}
+    \hrule
+  \end{fichacatalografica}
+  
+  \cleardoublepage
+}
+
+%----------------------------------------------------------------------

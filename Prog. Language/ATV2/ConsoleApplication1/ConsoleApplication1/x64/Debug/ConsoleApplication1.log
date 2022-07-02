@@ -1,0 +1,4 @@
+﻿  ConsoleApplication1.cpp
+E:\DATA\EDUCATION\UNINTER\Disciplinas\2022-B\Linguagem de programação\Atividades\ATV2\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(14,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+E:\DATA\EDUCATION\UNINTER\Disciplinas\2022-B\Linguagem de programação\Atividades\ATV2\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(14,9): message : consider using '%zd' in the format string
+  ConsoleApplication1.vcxproj -> E:\DATA\EDUCATION\UNINTER\Disciplinas\2022-B\Linguagem de programação\Atividades\ATV2\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

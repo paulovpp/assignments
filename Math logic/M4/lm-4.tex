@@ -1,0 +1,47 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{header}
+\usepackage{amsmath,amssymb,bm}
+\usepackage[brazilian]{babel}
+% \usepackage{enumerate}
+\usepackage{enumitem}
+
+
+% \usepackage{arial}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Metadata
+\date{\today}
+\setmodule{Equações Lógicas para o TDE 4}
+\setterm{Semestre 1, 2022}
+
+\title{Atividade 4}
+\setmembername{Paulo Vinicius Pereira Pinheiro}  % Fill name
+\setmemberuid{Lógica Matemática} 
+
+\begin{document}
+    \normalfont
+    \header{}
+
+    \begin{question}
+        Considere as equações lógicas abaixo e utilize um simulador computacional para simular a equação correspondente ao último dígito de sua matrícula. Em seguida, desenvolva também sua tabela verdade correspondente.
+        \vspace{-3mm}
+        % \begin{enumerate}[\bf \quad a.]
+        \begin{enumerate}
+            \setcounter{enumi}{-1}
+            \item $S_0 = (B \oplus (C+\overline{A+C}))+(A + (\overline{B.C.\overline{D}}))$
+            \item $S_1 = [(\overline{\overline{A}+B}) + (\overline{\overline{C}.D})].\overline{D} + (\overline{B+C})$
+            \item $S_2 = \overline{[\overline{A}.B.(\overline{B.C}).(\overline{B+D})]}\oplus (A+D)$
+            \item $S_3 = \overline{[\overline{(\overline{A}.B)} + (\overline{A + \overline{B}})+\overline{C}]}.(C+D)$
+            \item $S_4 = [\overline{(\overline{(A.C)}+D+B)}]+C.(\overline{A.C.D})$
+            \item $S_5 = [\overline{\overline{(B.D+A)}(C.D + \overline{(A+B)})}]$
+            \item $S_6 = (A.B)+[\overline{\overline{(A.\overline{C}.B)}+(B+C+\overline{D})}]$
+            \item $S_7 = [\overline{(\overline{A}+B+\overline{C})}.D]+[C.(\overline{\overline{A}+B+\overline{C}})]$
+            \item $S_8 = [\overline{\overline{A} + \overline{B}.\overline{(C+\overline{D})}+A.\overline{B}.\overline{C}}]\oplus (B.D)$
+            \item $S_9 = A + \overline{B.D} + \overline{C}.[\overline{A.B+\overline{C.D} \oplus \overline{(B+C)}}]$
+        \end{enumerate}
+    \end{question}
+    
+\end{document}
