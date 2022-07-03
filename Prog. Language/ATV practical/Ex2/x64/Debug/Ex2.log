@@ -1,0 +1,4 @@
+﻿  Source.cpp
+E:\DATA\EDUCATION\ASSIGNMENTS\Prog. Language\ATV practical\Ex2\Source.cpp(77,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+E:\DATA\EDUCATION\ASSIGNMENTS\Prog. Language\ATV practical\Ex2\Source.cpp(77,9): message : consider using '%zd' in the format string
+  Ex2.vcxproj -> E:\DATA\EDUCATION\ASSIGNMENTS\Prog. Language\ATV practical\Ex2\x64\Debug\Ex2.exe

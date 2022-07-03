@@ -5,8 +5,8 @@
 	oneside,			% para impressão em verso e anverso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
@@ -30,9 +30,39 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão Absent
 \usepackage{lipsum}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+% \usepackage{subfigure}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blue}{RGB}{41,5,195}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{red},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=0.5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 % alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
+
 
 % informações do PDF
 \makeatletter
@@ -58,7 +88,7 @@
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-% compila o indice
+% compila o índice
 % ---
 \makeindex
 % ----
@@ -74,7 +104,7 @@
 \begin{capa}
 	\begin{center}
 		\ABNTEXchapterfont\large{
-			\includegraphics[scale=1]{logo.png}\\
+			\includegraphics[scale=1]{Imgs/logo.png}\\
 			CENTRO UNIVERSITÁRIO INTERNACIONAL UNINTER\\
 			ESCOLA SUPERIOR POLITÉCNICA\\
 			BACHARELADO EM ENGENHARIA DA COMPUTAÇÃO\\
@@ -106,6 +136,15 @@
 	\end{center}
 \end{capa}
 
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\lstlistoflistings
+\pagebreak
+
+
 % inserir o sumario
 % ---
 \pdfbookmark[0]{\contentsname}{toc}
@@ -118,13 +157,13 @@
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
-% \textual
-
+\textual
+% \setcounter{page}{}
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
-\chapter*[Introdução]{Introdução}
-\addcontentsline{toc}{chapter}{Introdução}
+\chapter*[INTRODUÇÃO]{\bfseries{Introdução}}
+\addcontentsline{toc}{chapter}{INTRODUÇÃO}
 % ----------------------------------------------------------
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
@@ -156,52 +195,80 @@ Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
 você produzirá, de modo que o principal esforço seja concentrado no principal:
 na contribuição científica.
 
-Equipe \abnTeX 
 
-Lauro César Araujo
+\chapter{\bfseries{Prática}}
 
 
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-% \part{Preparação da pesquisa}
-% ----------------------------------------------------------
+\section{Enunciado}
 
-% ---
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
-% ---
-% \include{abntex2-modelo-include-comandos}
-% ---
+	Escreva um algoritmo em linguagem C que atenda aos seguintes requisitos:
 
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-% \part{Referenciais teóricos}
-% ----------------------------------------------------------
+	\begin{itemize}[itemsep = -1mm]
+		\item Os campos de um registro devem armazenar o Nome, dia e mês de aniversário.
+		\item Solicite ao usuário que digite 08 registros.
+		\item Os registros devem ser armazenados em um vetor.
+		\item Através do ponteiro para o vetor de registro mostre em cada um dos meses do ano quem são as pessoas que fazem aniversário.
+	\end{itemize}
 
-% ---
-% Capitulo de revisão de literatura
-% ---
-\chapter{Lorem ipsum dolor sit amet}
-% ---
+	Para demonstrar o funcionamento faça as capturas de tela do terminal utilizando seu nome completo e o seu dia e mês de aniversário em um dos registros de entrada solicitado.
 
-% ---
-\section{Aliquam vestibulum fringilla lorem}
-% ---
+\section{Código-Fonte da Solução}
 
-\lipsum[1]
+	Para o desenvolvimento da solução foi utilizada a versão 2022 do Microsoft Visual Studio. Abaixo, está o código-fonte da solução.
 
-\lipsum[2-3]
+	\lstinputlisting[language=C++, caption = Código fonte da prática 1 - registro de pessoas e aniversários.]{source.cpp}
 
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-% \part{Resultados}
-% ----------------------------------------------------------
+	O código apresentado está dividido em duas partes: a primeira realiza a aquisição dos registros e suas datas de aniversário. Nesta parte, através da instrução de sistema \emph{system("cls")}, o sistema limpa a tela após cada inserção de dados. Algumas telas são apresentadas na seção de discussão dos resultados.
+	
+	A segunda parte, responsável pela seleção e exibição dos registros, utiliza um vetor de ponteiros na implementação. 
 
-% ---
-% primeiro capitulo de Resultados
-% ---
+
+\section{Discussão dos resultados}
+
+	Inicia-se a apresentação dos resultados apresentando a tela inicial do programa no terminal, como mostra a Figura \ref{fig:ex1.1}.
+
+	\begin{figure}[htpb]
+		\centering
+		\caption{Tela inicial do programa.}
+		\includegraphics[scale=0.75]{Imgs/ex1.1.PNG}
+		\label{fig:ex1.1}
+	\end{figure}
+
+	O título incluído no programa é apresentado em todas as telas. Conforme elencado anteriormente, a aquisição dos registros é realizado em tela individual. Acima da solicitação do nome, percebe-se que o usuário pode identificar qual registro está sendo inserido. Nas Figuras \ref{fig:ex1.23} e \ref{fig:ex1.45} são apresentadas algumas das telas de inserção de dados.
+
+	\begin{figure}[htb]
+		\begin{center}
+			\caption{Telas com os campos de inserção de dados.}
+			\label{fig:ex1.23}
+			\includegraphics[height=3.5cm]{Imgs/ex1.2.PNG} \quad
+			\includegraphics[height=3.5cm]{Imgs/ex1.3.PNG} \quad
+		\end{center}
+	\end{figure}
+
+	\vspace*{-8mm}
+
+	\begin{figure}[htb]
+		\begin{center}
+			\caption{Mais telas com campos de inserção de dados.}
+			\label{fig:ex1.45}
+			\includegraphics[height=3.5cm]{Imgs/ex1.4.PNG} \quad
+			\includegraphics[height=3.5cm]{Imgs/ex1.5.PNG} \quad
+		\end{center}
+	\end{figure}
+
+	\vspace*{-4mm}
+
+	Na figura \ref{fig:ex1.6} está a tela final com a captura total dos dados e sua separação pelos meses de aniversário. Além do solicitado, foi incluído também no resultado final o dia em que o funcionário tem seu aniversário.
+
+	\begin{figure}[ht]
+		\begin{center}
+			\caption{Tela final com a segregação dos dados por mês.} 
+			\includegraphics[height=9cm]{Imgs/ex1.6.PNG}
+			\label{fig:ex1.6}
+		\end{center}
+	\end{figure}
+
+
 \chapter{Lectus lobortis condimentum}
 % ---
 

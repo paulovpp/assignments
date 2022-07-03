@@ -1,0 +1,3 @@
+﻿  Source.cpp
+E:\DATA\EDUCATION\ASSIGNMENTS\Prog. Language\ATV practical\Ex1\Source.cpp(25,21): warning C4091: 'typedef ': ignored on left of 'dados' when no variable is declared
+  Project1.vcxproj -> E:\DATA\EDUCATION\ASSIGNMENTS\Prog. Language\ATV practical\Ex1\x64\Debug\Project1.exe
