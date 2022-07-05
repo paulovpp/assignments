@@ -13,11 +13,12 @@ Início: 02/07/2022			Fim: 02/07/2022
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <locale.h>
 
 
 void titulo() 
 {
-	printf("###############    Exercicio 2 - Atividade Pratica     ###############\n");
+	printf("###############    Exercício 2 - Atividade Prática     ###############\n");
 	printf(" Aluno: Paulo Vinicius P. Pinheiro\n");
 	printf(" RU: 3760288\n\n");
 };
@@ -33,6 +34,8 @@ struct dados
 
 int main()
 {
+	setlocale(LC_ALL, "");
+
 	int cont_car = 0, cont_dig = 0, cont = 0;
 	struct dados pessoa {};
 	const int tam_total = sizeof(pessoa.nome) + sizeof(pessoa.endereco) + sizeof(pessoa.telefone);
@@ -74,7 +77,7 @@ int main()
 	printf("\n\n ## Resultado ##\n\n");
 	printf("\n Quantidade de caracteres do alfabeto: %d \n", cont_car);
 	printf("\n Quantidade de caracteres numericos: %d \n", cont_dig);
-	printf("\n Quantidade total de caracteres alfanuméricos: %d \n", strlen(dados_total));
+	printf("\n Quantidade total de caracteres digitados: %u \n", strlen(dados_total)-1);
 
 	return 0;
 }
