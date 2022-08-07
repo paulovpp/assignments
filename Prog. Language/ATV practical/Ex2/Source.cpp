@@ -23,22 +23,20 @@ void titulo()
 	printf(" RU: 3760288\n\n");
 };
 
-
 struct dados
 {
 	char nome[30];
 	char endereco[50];
 	char telefone[15];
-
 };
 
 int main()
 {
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, ""); // permite utilizar caracteres em pt-br
 
 	int cont_car = 0, cont_dig = 0, cont = 0;
 	struct dados pessoa {};
-	const int tam_total = sizeof(pessoa.nome) + sizeof(pessoa.endereco) + sizeof(pessoa.telefone);
+	const int tam_total = sizeof(pessoa.nome) + sizeof(pessoa.endereco) + sizeof(pessoa.telefone); // verifica tamanho total as strings concatenadas
 	char dados_total[tam_total]{};
 
 	titulo();
@@ -52,21 +50,26 @@ int main()
 	printf("\n Digite o seu telefone completo: ");
 	gets_s(pessoa.telefone, 15);
 
+      // como a string final (dados_total) já foi inicializada, apenas realiza-se
+      //o processo de concatenação dos 3 dados inputados
 	strcat_s(dados_total, pessoa.nome);
 	strcat_s(dados_total, pessoa.endereco);
 	strcat_s(dados_total, pessoa.telefone);
 
 	for (int i = 0; i < strlen(dados_total); i++)
 	{
+	        // ver PVPP
 		/*if (isalpha(dados_total[i])) printf("\n %c ok\n", dados_total[i]);
 		else printf("\n %c not ok\n", dados_total[i]);*/
 
+            // verifica  quais são caracteres alfabéticos e conta-os
 		if (isalpha(dados_total[i]))
 		{
 			cont_car++;
 			cont++;
 		}
 		
+		//verifica quais são caracteres numéricos
 		if (isdigit(dados_total[i]))
 		{
 			cont_dig++;

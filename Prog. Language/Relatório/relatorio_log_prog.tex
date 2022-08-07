@@ -30,30 +30,35 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão Absent
 \usepackage{lipsum}
-\usepackage{listings}
+\usepackage{listingsutf8}		% Listings com codigos em utf8
 \usepackage{xcolor}
 \usepackage{fancyhdr}
-% \usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{inconsolata} % Swedish encoding in lstlisting
+\usepackage{siunitx}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\definecolor{blue}{RGB}{41,5,195}
+% \definecolor{blue}{RGB}{41,5,195}
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{blue},
+	lineskip={-1pt},
+	basicstyle={\ttfamily\singlespacing},
+	% basicstyle=\linespread{0.5},
     numberstyle=\tiny\color{codegray},
-    stringstyle=\color{red},
+    stringstyle=\color{red!75!green},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
     keepspaces=true,                 
     numbers=left,                    
-    numbersep=0.5pt,                  
+    numbersep=2pt,                  
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
@@ -61,8 +66,11 @@
 }
 \lstset{style=mystyle}
 
-% alterando o aspecto da cor azul
-
+\lstset{
+	inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {ë}{{\"e}}1 {í}{{\'i}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~o}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {ú}{{\'u}}1 {Ã}{{\~A}}1 {â}{{\^a}}1
+}
 
 % informações do PDF
 \makeatletter
@@ -122,7 +130,8 @@
 			\ABNTEXchapterfont\bfseries\normalsize{
 				Autor: Paulo Vinicius Pereira Pinheiro\\
 				No. RU: 3760288\\
-				Prof. Sandro de Araújo
+				Prof. Sandro de Araújo\\
+				Prof. Winston Sen Lun Fung
 			}
 		\end{flushright}
 		
@@ -166,40 +175,17 @@
 \addcontentsline{toc}{chapter}{INTRODUÇÃO}
 % ----------------------------------------------------------
 
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
+A linguagem de programação C foi desenvolvida por Dennis Ritchie na década de 70 como um aprimoramento da linguagem B. No entanto, somente em 1983, o ANSI (\emph{AMERICAN NATIONAL STANDARD INSTITUTE}) publicou a primeira versão da linguagem C padronizada para sanar as discrepâncias encontradas na linguagem.
 
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
+Com a popularidade dos microcomputadores, logo a linguagem se tornou universalmente utilizada. Inúmeros foram os compiladores criados para a linguagem C, que foram usados em diversos sistemas operacionais.
 
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+C frequentemente é chamada de linguagem de médio nível, pois é uma linguagem de baixo nível, com menos recursos e mais pouco espaço de memória. Isso não significa que ela seja menos poderosa que as demais, como PASCAL e BASIC. Tampouco se deve comparar a mesma com ASSEMBLY. Ela é conhecida da forma mencionada acima pois engloba recursos de linguagens de baixo nível e de alto nível.
 
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
+Este trabalho é fruto do desenvolvimento da atividade prática solicitada na disciplina de Linguagem de programação. O mesmo está divido em cinco partes, cada uma correspondendo a uma prática solicitada. Tal formato difere do tradicional modelo de relatório pois tenta simplificar a forma de apresentação dos resultados. E não custa enfatizar que o mesmo segue o modelo solicitado pelo professor.
 
+\chapter[\bfseries{PRÁTICA 1}]{\bfseries{Prática}}
 
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-
-\chapter{\bfseries{Prática}}
-
-
-\section{Enunciado}
+\section[ENUNCIADO]{Enunciado}
 
 	Escreva um algoritmo em linguagem C que atenda aos seguintes requisitos:
 
@@ -212,18 +198,18 @@ na contribuição científica.
 
 	Para demonstrar o funcionamento faça as capturas de tela do terminal utilizando seu nome completo e o seu dia e mês de aniversário em um dos registros de entrada solicitado.
 
-\section{Código-Fonte da Solução}
+\section[CÓDIGO-FONTE DA SOLUÇÃO]{Código-Fonte da Solução}
 
 	Para o desenvolvimento da solução foi utilizada a versão 2022 do Microsoft Visual Studio. Abaixo, está o código-fonte da solução.
 
-	\lstinputlisting[language=C++, caption = Código fonte da prática 1 - registro de pessoas e aniversários.]{source.cpp}
-
+	\lstinputlisting[language=C++, caption = Código fonte da prática 1 - registro de pessoas e aniversários., captionpos=t]{Ex1.cpp}	
+	
 	O código apresentado está dividido em duas partes: a primeira realiza a aquisição dos registros e suas datas de aniversário. Nesta parte, através da instrução de sistema \emph{system("cls")}, o sistema limpa a tela após cada inserção de dados. Algumas telas são apresentadas na seção de discussão dos resultados.
 	
 	A segunda parte, responsável pela seleção e exibição dos registros, utiliza um vetor de ponteiros na implementação. 
 
 
-\section{Discussão dos resultados}
+\section[DISCUSSÃO DOS RESULTADOS]{Discussão dos resultados}
 
 	Inicia-se a apresentação dos resultados apresentando a tela inicial do programa no terminal, como mostra a Figura \ref{fig:ex1.1}.
 
@@ -249,48 +235,193 @@ na contribuição científica.
 
 	\begin{figure}[htb]
 		\begin{center}
-			\caption{Mais telas com campos de inserção de dados.}
+			\caption{Outras telas complementares com os campos de inserção de dados.}
 			\label{fig:ex1.45}
 			\includegraphics[height=3.5cm]{Imgs/ex1.4.PNG} \quad
 			\includegraphics[height=3.5cm]{Imgs/ex1.5.PNG} \quad
 		\end{center}
 	\end{figure}
 
-	\vspace*{-4mm}
+	% \vspace*{-4mm}
 
-	Na figura \ref{fig:ex1.6} está a tela final com a captura total dos dados e sua separação pelos meses de aniversário. Além do solicitado, foi incluído também no resultado final o dia em que o funcionário tem seu aniversário.
+	Na figura~\ref{fig:ex1.6} está a tela final com a captura total dos dados e sua separação pelos meses de aniversário. Além do solicitado, foi incluído também no resultado final o dia em que o funcionário tem seu aniversário.
 
 	\begin{figure}[ht]
 		\begin{center}
 			\caption{Tela final com a segregação dos dados por mês.} 
-			\includegraphics[height=9cm]{Imgs/ex1.6.PNG}
+			\includegraphics[height=15cm]{Imgs/ex1.6.PNG}
 			\label{fig:ex1.6}
 		\end{center}
 	\end{figure}
 
 
-\chapter{Lectus lobortis condimentum}
-% ---
+\chapter[\bfseries{PRÁTICA 2}]{\bfseries{Prática}}
 
-% ---
-\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-posuere cubilia Curae}
-% ---
+\section[ENUNCIADO]{Enunciado}
+	
+	Faça um programa onde o usuário digita 3 informações a respeito de uma pessoa: Nome, endereço e telefone. Concatene essas três informações em uma única string e faça uma contagem de quantas letras do alfabeto estão presentes nesta string (considerando as redundâncias) e de dígitos numéricos. Os espaços e os caracteres de pontuação devem ser ignorados (as funções de contagem já fazem isso).
 
-\lipsum[21-22]
+\section[CÓDIGO-FONTE DA SOLUÇÃO]{Código-Fonte da Solução}
 
-% ---
-% segundo capitulo de Resultados
-% ---
-\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
-elementum}
-% ---
+	O código fonte desenvolvido como solução para o problema do enunciado está abaixo:
 
-% ---
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-% ---
+	\lstinputlisting[language=C++, caption = Código fonte da prática 2 - verificação e contagem de caracteres., captionpos=t]{Ex2.cpp}	
+	
+	O código fonte apresenta todos os itens solicitados. Dentro do laço for da linha 56, uma verificação é realizada por toda \emph{string} já concatenada (linhas 52-54). As funções \emph{isalpha} e \emph{isdigit} são utilizadas para verificar se o caractere está presente no alfabeto e no dígito, correspondentemente nas linhas 63 e 70. Além do solicitado, também foi desenvolvida a rotina para apresentação da soma dos caracteres alfanuméricos.
 
-\lipsum[24]
+\section[DISCUSSÃO DOS RESULTADOS]{Discussão dos resultados}
+
+	Na figura~\ref{fig:ex2.1}, verifica-se a tela de execução do programa com as informações de input e resultados já mostrados.
+
+	\begin{figure}[ht]
+		\begin{center}
+			\caption{Tela final com a segregação dos dados por mês.} 
+			\includegraphics[width=0.9\textwidth]{Imgs/ex2.1.PNG}
+			\label{fig:ex2.1}
+		\end{center}
+	\end{figure}
+
+	Conforme apresentado no código fonte e solicitado no enunciado, os caracteres numéricos e alfabéticos são contados, da mesma forma como todos os caracteres alfanuméricos e símbolos válidos.
+% ---
+\chapter[\bfseries{PRÁTICA 3}]{\bfseries{Prática}}
+
+\section[ENUNCIADO]{Enunciado}
+
+	Faça um programa C para calcular o número de lâmpadas 60 watts necessárias para um determinado cômodo. O programa deverá ler um conjunto de informações, tais como: tipo, largura e comprimento do cômodo. O programa termina quando o tipo de cômodo for igual -1. A tabela abaixo mostra, para cada tipo de cômodo, a quantidade de watts por metro quadrado.
+
+	\begin{table}[htpb]
+		\caption{Dados do problema.}
+		\label{tab:table_2}
+		\centering
+		\begin{tabular}{c|c}
+		\hline
+		\multicolumn{1}{l|}{\textbf{TIPO CÔMODO}} & \multicolumn{1}{l}{\textbf{POTÊNCIA(\unit{W/m^2})}} \\ \hline
+		0                                         & 12                                                                                    \\ \hline
+		1                                         & 15                                                                                    \\ \hline
+		2                                         & 18                                                                                    \\ \hline
+		3                                         & 20                                                                                    \\ \hline
+		4                                         & 22                                                                                    \\ \hline
+		\end{tabular}
+	\end{table}
+
+\section[CÓDIGO-FONTE DA SOLUÇÃO]{Código-Fonte da Solução}
+
+	O código fonte desenvolvido como solução para o problema do enunciado está abaixo:
+
+	\lstinputlisting[language=C++, caption = Código fonte da prática 3 - adequação do número de lâmpadas a comodos., captionpos=t]{Ex3.cpp}	
+	
+	O código fonte apresenta todos os itens solicitados. Dentro do laço \emph{while} da linha 48, todos os inputs são solicitados e o laço se repete até o usuário digitar -1. A área do cômodo e a quantidade de lâmpadas são calculados em funções separadas da main, a partir da linha 72.
+
+\section[DISCUSSÃO DOS RESULTADOS]{Discussão dos resultados}
+	
+	Na figura~\ref{fig:ex3.1}, verifica-se a tela de execução do programa com as informações de input e resultados já mostrados.
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela inicial com a solicitação do tipo do cômodo.} 
+			\includegraphics[width=0.9\textwidth]{Imgs/ex3.1.PNG}
+			\label{fig:ex3.1}
+		\end{center}
+	\end{figure}
+	
+	A tela inicial, figura~\ref{fig:ex3.1}, conta com um título e apresenta as informações de input solicitadas. A figura XX apresenta a tela com o input dos dados solicitados e o resultado: a quantidade de lâmpadas necessárias para um espaço daquele tipo e com aquelas dimensões.
+
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela final com a apresentação dos resultados.} 
+			\includegraphics[width=0.8\textwidth]{Imgs/ex3.2.PNG}
+			\label{fig:ex3.2}
+		\end{center}
+	\end{figure}
+
+	Conforme apresentado no código fonte e solicitado no enunciado, o programa calcula a área do cômodo e a quantidade de lâmpadas necessárias para o cômodo escolhido e deve permanecer solicitando esses inputs continuamente até o usuário digitar -1. Na figura~\ref{fig:ex3.3} está apresentada a tela confirmando a condição de saída do programa.
+
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela final com a apresentação dos resultados.} 
+			\includegraphics[width=0.8\textwidth]{Imgs/ex3.3.PNG}
+			\label{fig:ex3.3}
+		\end{center}
+	\end{figure}
+
+\chapter[\bfseries{PRÁTICA 4}]{\bfseries{Prática}}
+
+\section[ENUNCIADO]{Enunciado}
+	
+	Escreva em linguagem C um algoritmo que:
+
+	\begin{itemize}
+		\item Solicite ao usuário que digite o seu RU;
+		\item Armazena cada dígito do Ru em uma posição de um vetor;
+		\begin{table}[htpb]
+			% \caption{Dados do problema.}
+			% \label{tab:table_3}
+			\centering
+			\begin{tabular}{c|c|c|c|c|c|c|c|}
+			\cline{2-8}
+			\textbf{Vetor RU}                                                       & \textbf{\begin{tabular}[c]{@{}c@{}}Primeiro \\ dígito\end{tabular}} &   &   &   &   &   & \textbf{\begin{tabular}[c]{@{}c@{}}Último\\ dígito\end{tabular}} \\ \cline{2-8} 
+			\textbf{\begin{tabular}[c]{@{}c@{}}Posição do \\ vetor RU\end{tabular}} & 0                                                                   & 1 & 2 & 3 & 4 & 5 & 6                                                                \\ \cline{2-8} 
+			\end{tabular}
+			\end{table}
+		\item Utilizando uma função recursiva mostre o qual o valor do menor dígito inserido no vetor.
+		\item Utilizando outra função recursiva mostre o qual o valor do maior dígito inserido no vetor
+	\end{itemize}
+
+\section[CÓDIGO-FONTE DA SOLUÇÃO]{Código-Fonte da Solução}
+
+	O código fonte desenvolvido como solução para o problema do enunciado está abaixo:
+
+	\lstinputlisting[language=C++, caption = Código fonte da prática 4 - verificação do menor e maior dígitos., captionpos=t]{Ex4.cpp}	
+	
+	O código fonte apresenta todos os itens solicitados. Após a função principal, estão inseridas as funções \emph{menor} e \emph{maior} para verificar o menor e o maior dígito do vetor RU.
+
+\section[DISCUSSÃO DOS RESULTADOS]{Discussão dos resultados}
+	
+	Na figura~\ref{fig:ex4.1}, verifica-se a tela de execução do programa com as informações de input e resultados já mostrados.
+
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela com a solicitação do vetor de entrada e resultados.} 
+			\includegraphics[width=0.85\textwidth]{Imgs/ex4.1.PNG}
+			\label{fig:ex4.1}
+		\end{center}
+	\end{figure}
+
+\chapter[\bfseries{PRÁTICA 5}]{\bfseries{Prática}}
+
+\section[ENUNCIADO]{Enunciado}
+		
+	Crie um programa, em linguagem C, que receba 7 registros contendo, Nome do Produto, Código do produto (numérico), valor do produto. Solicite que sejam digitados todos os dados de todos os registros e ao final salve-os em um arquivo.csv, utilize o ;(ponto e vírgula) para separador de campo. O nome do arquivo deve ser o seu número de RU.
+
+\section[CÓDIGO-FONTE DA SOLUÇÃO]{Código-Fonte da Solução}
+
+	O código fonte desenvolvido como solução para o problema do enunciado está abaixo:
+
+	\lstinputlisting[language=C++, caption = Código fonte da prática 5 - armazena dados em arquivo .csv., captionpos=t]{Ex5.cpp}	
+	
+	O código fonte apresenta todos os itens solicitados. O nome do arquivo .csv para armazenamento dos dados é previamente definido pelo desenvolvedor (linha 40). Porém, o mesmo poderia ser solicitado ao usuário. Após a linha 45 é realizada a criação do arquivo com verificação de erro. No laço \emph{for} iniciado na linha 59, é iniciada a solicitação de entrada dos dados e consequente inscrição no arquivo .csv. Na linha 76, têm se a instrução de escrita no arquivo. 
+
+\section[DISCUSSÃO DOS RESULTADOS]{Discussão dos resultados}
+
+	Na figura~\ref{fig:ex5.1}, verifica-se a tela de execução do programa com os registros de entrada devidamente separados. 
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela com a solicitação dos registros de entrada.}
+			\includegraphics[width=0.8\textwidth]{Imgs/ex5.1.PNG}
+			\label{fig:ex5.1}
+		\end{center}
+	\end{figure}
+
+	Na figura ~\ref{fig:ex5.2}, verifica-se a criação do arquivo com o RU 3760288.csv e a correta inscrição dos dados de input separados por ponto e vírgula.
+
+	\begin{figure}[htp]
+		\begin{center}
+			\caption{Tela com a criação do arquivo .csv e a inscrição dos dados de input.}
+			\includegraphics[width=0.8\textwidth]{Imgs/ex5.2.PNG}
+			\label{fig:ex5.2}
+		\end{center}
+	\end{figure}
 
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
@@ -302,11 +433,15 @@ elementum}
 % ---
 % Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
-\chapter*[Conclusão]{Conclusão}
-\addcontentsline{toc}{chapter}{Conclusão}
+\chapter*[CONCLUSÃO]{Conclusão}
+\addcontentsline{toc}{chapter}{CONCLUSÃO}
 % ---
+	Através da confecção desta atividade prática, o aluno teve a oportunidade de aprimorar a utilização da linguagem C e todos os conceitos apresentados na disciplina de Linguagem de programação.	Estruturas de repetição, estruturas de dados e funções recursivas são alguns dos pontos abordados nestes cinco exercícios práticos.
 
-\lipsum[31-33]
+	Todos os exercícios foram desenvolvidos com a linguagem C no IDE de desenvolvimento Microsoft Visual Studio 2022(Community).
+
+	Este documento e seu código-fonte foram produzidos em \LaTeX\ e são exemplos de referência de uso da classe \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação - Trabalhos acadêmicos - Apresentação}.
+
 
 % \bibliography{abntex2-modelo-references}
 
