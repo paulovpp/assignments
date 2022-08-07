@@ -21,6 +21,8 @@
 \usepackage[paperwidth=210mm,paperheight=297mm,centering,hmargin=2cm,vmargin=2.5cm]{geometry}
 % \usepackage{physics}
 \usepackage{siunitx}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
 %=============================================================================
 % FRONT MATTER
 %=============================================================================
@@ -55,131 +57,201 @@
 
     Criptografia é o processo de codificar ou embaralhar uma mensagem que se deseja transmitir, de tal modo que apenas aquele à quem a mensagem se destine tenha meios para identificar seu conteúdo. Inúmeros são os usos da criptografia para comunicação segura, como em transações financeiras, governamentais e empresariais. 
 
-    % \begin{figure}[!htpb]
-    %     \centering
-    %     \label{fig:cifra}
-    %     \caption{Cifra de Feistel.}
-    %     \includegraphics[width=0.25\textwidth]{feistel.png}
-    %     \begin{center}
-    %         \scriptsize{Fonte: \url{https://pt.alegsaonline.com/art/33900}}
-    %     \end{center}
-    % \end{figure}
-
-    Os processos de codificação e decodificação são idênticos. Eles consistem em dividir a mensagem em dois blocos de tamanhos iguais, aplicar ao segundo bloco uma função \textit{HASH} $F$ de embaralhamento e após, com o primeiro bloco, realizar uma função XOR. A função \textit{HASH}  é gerada a partir de um valor aleatório, conhecido como a chave do processo. Após a função XOR, o resultado é concatenado ao segundo bloco utilizado antes da aplicação da função $F$, que toma a posição inicial no bloco em formação.
-
-    A operação de decodificação acontece da mesma forma. As chaves utilizadas nas iterações de decodificação precisam ser as mesmas utilizadas no processo de codificação. Daí decorre sua classificação de cifra de chave simétrica. Portanto, nasce aí o maior problema da cifra de chave simétrica: como compartilhar a chave?
-    
-    O desenvolvimento deste trabalho, esclarecido na seção~ a seguir, está dividido em duas partes: a subseção trata da codificação e a subseção trata da decodificação. Conclusões e considerações finais encontram-se na seção.
-
-
-
-
 \section{Procedimento experimental}
 \label{sec:proced_exp}
 
-    A presente seção tem por objetivo apresentar os procedimentos realizados na atividade em questão. Destaca-se que como a atividade é bastante extensa, a seção foi subdividida em quatro partes, correspondendo cada uma a uma questão proposta.
+    A presente seção tem por objetivo apresentar a metodologia para os procedimentos realizados na atividade em questão. Destaca-se que como a atividade é bastante extensa, esta seção e as subsequentes foram subdivididas em quatro partes, correspondendo cada uma a uma questão prática proposta.
 
-    \subsection{Experimento 1: Lei de Ohm}
-    \label{subsec:exp1}
+    Todos os experimentos em resumo solicitam sua montagem real em placa de teste, a respectiva medição dos valores de tensão e corrente para diversos parâmetros e a comparação com a simulação realizada por software competente. Os dados obtidos e sua análise são apresentados na seção seguinte~\ref{sec:analise_resultados}.
 
-    Neste primeiro experimento, foi solicitada a montagem real do circuito apresentado na figura~\ref{fig:circuito1} e sua simulação utilizando um circuito digital. O circuito é composto apenas pela fonte de tensão contínua e um resistor com o valor deduzido do RU do aluno. No caso do autor deste trabalho, com o RU de número 3760288, o valor do resistor é de $\qty{880}{\ohm}$. Como não há um resistor deste valor, foram utilizados dois resistores em uma associação em série, com os valores iguais a $\qty{560}{\ohm}$ e $\qty{330}{\ohm}$, o que resulta na resistência equivalente igual a $\qty{890}{\ohm}$
+\subsection{Experimento 1: Lei de Ohm}
+\label{subsec:exp_lei_ohm}
 
-    \begin{figure}[htpb]
+    Neste primeiro experimento, foi solicitada a montagem real do circuito apresentado na Figura~\ref{fig:circuito1} e sua simulação utilizando um circuito digital. O circuito é composto apenas pela fonte de tensão contínua e um resistor com o valor deduzido do RU do aluno. No caso do autor deste trabalho, com o RU de número 3760288, o valor do resistor é de $\qty{880}{\ohm}$. Como não há um resistor deste valor, foram utilizados dois resistores em uma associação em série, com os valores iguais a $\qty{560}{\ohm}$ e $\qty{330}{\ohm}$, o que resulta na resistência equivalente igual a $\qty{890}{\ohm}$
+
+    \begin{figure}[H]
         \centering
-        \label{fig:circuito1}
-        \caption{Circuito do Experimento 1}
+        \caption{Circuito elétrico do Experimento 1}
         \includegraphics[width=0.4\textwidth]{imgs/fig1.png}\\
         \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:circuito1}
     \end{figure}
-   
-    suficientes para proceder com a codificação. Para o segundo \textit{nibble} de cada caractere é executada a função $F$ do tipo \textit{shift left} cíclica oito($8$) vezes, e na sequência o resultado é submetido a uma função $XOR (\oplus)$ com o primeiro nibble. Na tabela elucida-se os resultados obtidos para cada caractere:
 
+    A confecção do circuito em placa de testes \emph{protoboard} está apresentada na figura \ref{fig:protoboard1}. 
+    
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do experimento 1 em montagem real.}
+        \includegraphics[width=0.4\textwidth]{imgs/fig3.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:protoboard1}
+    \end{figure}
+
+    Da mesma forma, também foi solicitada a simulação do circuito em um computador. A simulação foi realizada utilizando a plataforma \emph{MultiSim} e o circuito simulado está apresentado na figura \ref{fig:circuito1}.
+
+\subsection{Experimento 2: Divisor de tensão}
+\label{subsec:exp_div_tens}
+
+    Neste experimento, foi solicitada a montagem real do circuito apresentado na figura~\ref{fig:circuito2} e sua simulação utilizando um circuito digital. Trata-se de um  circuito  com uma associação em série de resistores. Foram utilizados três resistores com valores previamente definidos, em uma associação em série, com os valores iguais a $\qty{560}{\ohm}$, $\qty{1}{\kilo\ohm}$ e $\qty{2,2}{\kilo\ohm}$, o que resulta na resistência equivalente igual a $\qty{1}{\kilo\ohm}$. Os valores de tensão fornecidos variam entre 5, 7, 10 e 12$\unit{\volt}$.
+    
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do Experimento 2}
+        \includegraphics[width=0.4\textwidth]{imgs/circuito2.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:circuito2}
+    \end{figure}
+    
+    A confecção do circuito em placa de testes \emph{protoboard} está apresentada na figura \ref{fig:protoboard2}. 
+    
     \begin{figure}[htpb]
         \centering
-        \label{fig:circuito2}
-        \caption{Circuito do Experimento}
-        \includegraphics[width=0.4\textwidth]{imgs/fig2.png}\\
+        \caption{Circuito elétrico do Experimento 2 - montagem real.}
+        \includegraphics[width=0.4\textwidth]{imgs/protoboard2.png}\\
         \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:protoboard2}
+    \end{figure}
+    
+    Da mesma forma, também foi solicitada a simulação do circuito em um computador. A simulação foi realizada utilizando a plataforma \emph{MultiSim} e o circuito simulado está apresentado na figura \ref{fig:circuito2}.
+
+
+\subsection{Experimento 3: Divisor de corrente}
+\label{subsec:exp_div_corr}
+
+
+    Para o experimento 3, um divisor de corrente foi solicitado. Os valores das resistências são idênticas ao experimento da subseção anterior (\ref{subsec:exp_div_tens}). A representação do circuito está apresentada na Figura~\ref{fig:circuito3}. Novamente os valores de tensão devem variar entre 5, 7, 10 e 12$\unit{\volt}$.
+
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do Experimento 3}
+        \includegraphics[width=0.4\textwidth]{imgs/circuito3.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:circuito3}
     \end{figure}
 
-    Para formação da sequência de caracteres codificada, são utilizados dois \textit{nibbles} para cada caractere: o primeiro é obtido do \textit{nibble} prévio à codificação, e o segundo será o resultado da função XOR aplicada, ambos contidos nas colunas 3 e 4 da tabela. Aplicando a concatenação para todos os caracteres, obtêm-se então a mensagem codificada após uma iteração:
+    A montagem experimental é mostrada na Figura~\ref{fig:protoboard3}.
 
-    A sequência de caracteres codificada após a segunda iteração é dada pela tabela. Essa será a mensagem CODIFICADA que deverá ser transmitida para um destinatário.
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do Experimento 3 - montagem real.}
+        \includegraphics[width=0.4\textwidth]{imgs/protoboard3.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:protoboard3}
+    \end{figure}
 
-    % \begin{table}[!htpb]
-    %     \caption{Mensagem codificada após duas iterações.}
-    %     \label{tab:tab5-mens}
-    %     \begin{tabular}{|c|}
-    %     \hline
-    %     \textbf{Mensagem codificada}  \\ \hline
-    %     0101 0101 0110 0111 0111 0010 0110 1010     \\ \hline
-    %     \textbf{V $\qquad\quad$ g $\qquad \quad$ r $\qquad \quad$ j} \\ \hline
-    %     \end{tabular}%
-    % \end{table}
+\subsection{Experimento 4: Equivalente de Thevenin}
+\label{subsec:exp_equiv_the}
 
-    A  amostra a sequência de caracteres codificada após a segunda iteração, realizando assim a codificação solicitada. Na sequência, o processo de decodificação é desenvolvido.
-programming 
+    Um experimento para o equivalente de Thevenin foi solicitado. O circuito apresentado na Figura~\ref{fig:circuito4} é composto por duas fontes de tensão contínua e alguns resistores de valores pré-definidos.
+
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do Experimento 4.}
+        \includegraphics[width=0.4\textwidth]{imgs/circuito4.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:circuito4}
+    \end{figure}
+
+    A confecção do circuito em placa de testes \emph{protoboard} está apresentada na figura \ref{fig:protoboard4}.
+
+    \begin{figure}[H]
+        \centering
+        \caption{Circuito elétrico do Experimento 4 - montagem real.}
+        \includegraphics[width=0.4\textwidth]{imgs/protoboard4.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:protoboard4}
+    \end{figure}
+%----------------------------------------------------------------------------------------------------------
+
 \section{Análise e Resultados}
 \label{sec:analise_resultados}
 
-    Como prova de conceito, realiza-se agora o processo de decodificação da mensagem previamente codificada. O processo decorre de forma semelhante à codificação, através da aplicação sequenciada das funções $F$ e XOR.
+    Nesta seção serão apresentados os dados coletados das montagens reais dos experimentos, bem como serão realizadas as comparações com os valores obtidos das simulações computacionais e suas devidas elucidações.
     
-    Seguindo o mesmo procedimento da codificação, na primeira iteração da decodificação, o segundo nibble de cada caractere é submetido à função $F$ e em seguida, com o primeiro nibble, a função XOR. Aplicando-se as funções para todos os caracteres, com seus resultados mostrados na tabela~\ref{tab:tab6-funcao}, obtêm-se a sequência de caracteres decodificada mostrada na tabela~\ref{tab:tab7-iter1-deco}.
+\subsection{Experimento 1: Lei de Ohm}
+\label{subsec:ana_exp1}
 
-    \begin{table}[!htpb]
-        \caption{Funções $F$ e XOR para $1^a$ iteração da decodificação.}
-        \label{tab:tab6-funcao}
-        \begin{tabular}{|cc|c|c|}
+    A partir da montagem real do experimento sobre a lei de Ohm (apresentado na Figura~\ref{fig:protoboard1}) e sua simulação computacional (Figura~\ref{fig:circuito1}), juntamente com os cálculos teóricos foi criada a Tabela~\ref{tab:table_exp1_data} com os valores coletados. Mais uma imagem referente a simulação também é apresentada na Figura~\ref{fig:simula01}, essa com a prévia dos dados medidos para o valor de tensão $\qty{5,02}{\volt}$. Tal valor de tensão foi utilizado para que a simulação ofereça mais precisão com os dados coletados. Os valores de corrente medidos no circuito experimental também estão inseridos na tabela.
+
+    \begin{table}[H]
+        \caption{Valores obtidos para o experimento 1.}
+        \label{tab:table_exp1_data}
+        \begin{tabular}{cccccc}
             \hline
-            \multicolumn{2}{|c|}{\textbf{Mensagem}} & \textbf{Função $F$} & \textbf{XOR ($\oplus$)} \\ \hline
-            \multicolumn{1}{|c|}{0101}    & 0101    & 0101                & 0000                                 \\ \hline
-            \multicolumn{1}{|c|}{0110}    & 0111    & 0111                & 0001                                 \\ \hline
-            \multicolumn{1}{|c|}{0111}    & 0010    & 0010                & 0101                                 \\ \hline
-            \multicolumn{1}{|c|}{0110}    & 1010    & 1010                & 1100                                 \\ \hline
+            \multirow{2}{*}{\textbf{V (V)}} &
+            \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}R\\ (ohms)\end{tabular}}} &
+            \multicolumn{3}{c}{\textbf{Corrente (mA)}} &
+            \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Erro\\ Experim.\end{tabular}}} \\ \cline{3-5}
+            &     & \multicolumn{1}{c}{\textbf{Teórica}} & \multicolumn{1}{c}{\textbf{Simulada}} & \textbf{Experim.} &         \\ \hline
+            0  & 890 & \multicolumn{1}{c}{0}                & \multicolumn{1}{c}{0}                 & 0                     & 0\%     \\ \hline
+            5  & 890 & \multicolumn{1}{c}{5,65}             & \multicolumn{1}{c}{5,64}              & 5,38                  & 4,78\%  \\ \hline
+            7  & 890 & \multicolumn{1}{c}{7,86}             & \multicolumn{1}{c}{7,83}              & 7,04                  & 10,43\% \\ \hline
+            10 & 890 & \multicolumn{1}{c}{11,24}            & \multicolumn{1}{c}{11,33}             & 10,78                 & 4,09\%  \\ \hline
+            12 & 890 & \multicolumn{1}{c}{13,31}            & \multicolumn{1}{c}{13,32}             & 12,82                 & 3,68\%  \\ \hline
         \end{tabular}
     \end{table}
-    
-    \vspace{-0.5cm}
-    
-    \begin{table}[!htpb]
-        \caption{Mensagem decodificada com apenas uma iteração.}
-        \label{tab:tab7-iter1-deco}
-        \begin{tabular}{|clll|}
-        \hline
-        \multicolumn{4}{|c|}{\textbf{Mensagem codificada}}            \\ \hline
-        \multicolumn{4}{|c|}{0101 0000 0111 0001 0010 0101 1010 1100} \\ \hline
-        \end{tabular}%
-    \end{table}
 
-    A segunda iteração da decodificação ocorre de forma semelhante a primeira mas sem a inversão dos nibbles ao final da formação dos caracteres. A tabela~\ref{tab:tab8-funcao-deco} mostra os resultados das aplicações das funções $F$ e XOR para cada caractere da segunda iteração:
-    
-    \vspace{-0.25cm}
+    Para a simulação computacional, a Figura \ref{fig:simula01} apresenta na própria simulação um exemplo dos resultados obtidos para o valor de tensão $\qty{5,02}{\volt}$. O restante dos valores de tensão usados não é mostrado.
 
-    \begin{table}[!htpb]
-        \caption{Funções $F$ e XOR para $2^a$ iteração da decodificação.}
-        \label{tab:tab8-funcao-deco}
-        \begin{tabular}{|cc|c|c|}
+    \begin{figure}[H]
+        \centering
+        \caption{Simulação computacional do Experimento 1 - Lei de ohm.}
+        \includegraphics[width=0.4\textwidth]{imgs/Ana01.png}\\
+        \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:simula01}
+    \end{figure}
+
+    Também é solicitado o cálculo do erro experimental, mostrado na última coluna da tabela~\ref{tab:table_exp1_data}. A razão por trás dos erros pode ser encontrada nas condições experimentais de montagem, temperatura e o erro inerente dos componentes. Os resistores utilizados possuem tolerância de até 10\%. Há também o fato dos terminais dos mesmos serem de espessura muito menor que o orifício da placa de testes, causando possíveis erros de contato. A fonte de tensão utilizada não possui ajuste com sensibilidade suficiente e, junto com o erro inerente às medições, dos multímetros, constituem a origem da maior parte dos erros mostrados.
+
+    Solicita-se também uma curva de corrente x tensão, com sua curva de tendência, para verificação visual do erro previamente mostrado. A Figura~\ref{fig:curva_exp1} mostra a curva:
+
+    \begin{figure}[H]
+        \centering
+        \caption{Curva de corrente x tensão do Experimento 1.}
+        \includegraphics[width=0.4\textwidth]{imgs/graph_exp1_1.png}\\
+        % \scriptsize{Fonte: Elaboração própria.}
+        \label{fig:curva_exp1}
+    \end{figure}
+
+    Com os valores de tensão e corrente obtidos, é possível calcular os valores de potência dissipada pelos resistores. Na Tabela~\ref{tab:table_exp1_pot} estão apresentados os valores e o erro experimental obtido.         
+
+    \begin{table}[H]
+        \caption{Dados do problema.}
+        \label{tab:table_exp1_pot}
+        \begin{tabular}{cccccc}
             \hline
-            \multicolumn{2}{|c|}{\textbf{Mensagem}} & \textbf{Função $F$} & \textbf{XOR (\textbackslash{}oplus)} \\ \hline
-            \multicolumn{1}{|c|}{0101}    & 0000    & 0101                & 0101                                 \\ \hline
-            \multicolumn{1}{|c|}{0110}    & 0001    & 0111                & 0110                                 \\ \hline
-            \multicolumn{1}{|c|}{0111}    & 0101    & 0010                & 0111                                 \\ \hline
-            \multicolumn{1}{|c|}{0110}    & 1100    & 1100                & 0110                                 \\ \hline
-            \end{tabular}
+            \multirow{2}{*}{\textbf{V (V)}} &
+            \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}R\\ (ohms)\end{tabular}}} &
+            \multicolumn{3}{c}{\textbf{Potencia (W)}} &
+            \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Erro\\ Experim.(\%)\end{tabular}}} \\ \cline{3-5}
+            &
+            &
+            \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Teórica\end{tabular}}} &
+            \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Simulada\end{tabular}}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}Experim.\end{tabular}} &
+            \\ \hline
+            0  & 890 & \multicolumn{1}{c}{0}      & \multicolumn{1}{c}{0}      & 0      & 0,00\%  \\ \hline
+            5  & 890 & \multicolumn{1}{c}{28,25}  & \multicolumn{1}{c}{28,2}   & 26,9   & 4,78\%  \\ \hline
+            7  & 890 & \multicolumn{1}{c}{55,02}  & \multicolumn{1}{c}{54,81}  & 49,28  & 10,43\% \\ \hline
+            10 & 890 & \multicolumn{1}{c}{112,4}  & \multicolumn{1}{c}{113,3}  & 107,8  & 4,09\%  \\ \hline
+            12 & 890 & \multicolumn{1}{c}{159,72} & \multicolumn{1}{c}{159,84} & 153,84 & 3,68\%  \\ \hline
+        \end{tabular}
     \end{table}
 
-    A formação do byte correspondente a cada caractere é realizada sem a inversão dos nibbles ao final das operações. A tabela~\ref{tab:tab9-mens-deco} mostra os resultados das concatenações utilizadas para composição dos caracteres da mensagem final decodificada.
+    Novamente percebe-se taxas de erro consideráveis. Da mesma forma como elucidado anteriormente, as taxas de erro estão embasadas em fatores como temperatura, tolerância dos componentes e possíveis erros de contato na montagem experimental. Cita-se também possíveis erros nos valores de tensão fornecidos pela fonte simétrica, como também nos equipamentos de medida utilizados.
 
-    \begin{table}[!htpb]
-        \caption{Mensagem decodificada.}
-        \label{tab:tab9-mens-deco}
-        \begin{tabular}{|c|}
-            \hline
-            \textbf{Mensagem codificada}                      \\ \hline
-            0101 0000 0110 0001 0111 0101 0110 1100           \\ \hline
-            \textbf{P $\qquad \quad \quad$ a $\quad \qquad$ u $\qquad \quad \quad$ l} \\ \hline
-        \end{tabular}%
-    \end{table}
+\subsection{Experimento 2: Divisor de tensão}
+\label{subsec:ana_div_tens}
+
+
+
+\subsection{Experimento 3: Divisor de corrente}
+\label{subsec:ana_div_corr}
+
+
+\subsection{Experimento 4: Equivalente de Thevenin}
+\label{subsec:ana_equiv_the}
+
 
 \section{Conclusão}
 \label{sec:conclusion}
@@ -193,7 +265,7 @@ programming
     \vspace{-0.5cm}
 
     \begin{acknowledgments}
-        O autor agradece aos professores, tutores e a todo pessoal responsável pela disciplina de matemática computacional pela oportunidade de produzir tal trabalho que sem dúvida, aprofundou o conhecimento adquirido no período de estudos.    
+        O autor agradece aos professores, tutores e a todo pessoal responsável pela disciplina de Circuitos Elétricos 1 pela oportunidade de produzir tal trabalho que sem dúvida, aprofundou o conhecimento adquirido no período de estudos.    
 
         Trabalho realizado em \LaTeX.
     \end{acknowledgments}
@@ -206,12 +278,10 @@ programming
 \appendix
 
 % %=============================================================================
-\section{Processo de codificação}
-\label{apx:code}
+\section{Informações adicionais}
+\label{apx:data}
 
     Abaixo segue uma imagem do processo de codificação e decodificação da mensagem solicitada usando a Cifra de Feister.
-
-\onecolumngrid
 
     % \begin{figure*}[!htpb]
     %     \centering
